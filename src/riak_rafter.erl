@@ -24,7 +24,7 @@ is_leader(Node, Key) ->
         [_] -> false;
         [_|_] ->
             Name = riak_rafter_util:ensemble_name(Nodes),
-            ProcId = case ordsets:is_element(Node, Nodes) of
+            ProcId = case ordsets:is_element(node(), Nodes) of
                          true -> Name;
                          false ->
                              [First|_] = Nodes,
